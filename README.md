@@ -7,7 +7,7 @@ I do not personally recommend the [FoxUn SX-MX08](http://foxun.com/product_detai
 This repo contains necessary files and scripts to configure a [Raspberry Pi](http://amzn.to/2kvagTB) to accept IR commands for an A-NeuVideo HD-88AK 8x8 HDMI matrix, and send the resulting commands over network to a FoxUn SX-MX08.  The code will work with other FoxUn and similar supplier HDMI matrix switches.  The HD-88AK was selected as the IR profile to emulate as it is present in the Logitech Harmony database and is easily used to control 8x8 HDMI matrix switches.
 
 ## Key Features ##
-- Accept HD-88AK IR commands
+- Accept HD-88AK IR Input/Output commands (**DOES NOT** forward the other IR commands).
 - Transmits discrete input selection commands to the FoxUn SX-MX08 HDMI Matrix switch.
 - Permits discrete input selection for advanced universal remotes, like the Logitech Harmony line.
 - Includes script and configuration for *optional* Node-Red Dashboard interface to control the SX-MX08 HDMI Matrix switch.
