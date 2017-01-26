@@ -46,6 +46,8 @@ $ sh install_nodered.sh
   - NOTE: Click the comment nodes and follow the instructions on the right in the 'Info' tab to configure your device.
 
 ## Screenshots ##
-![Node-Red Dashboard Interface](https://raw.githubusercontent.com/linuxkidd/HD-88AK_to_SX-MX08/master/images/Node-Red-Dashboard.png)
+- Mobile friendly Node-Red Dashboard interface
+![Node-Red Dashboard interface](https://raw.githubusercontent.com/linuxkidd/HD-88AK_to_SX-MX08/master/images/Node-Red-Dashboard.png)
+- Node-Red Flows associated with the web interface.
 ![Node-Red Flows](https://raw.githubusercontent.com/linuxkidd/HD-88AK_to_SX-MX08/master/images/Node-Red-Flows.png)
 
