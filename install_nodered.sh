@@ -21,15 +21,23 @@ sudo perl -MCPAN -e 'install Net::MQTT::Simple'
 sed -i -e 's/mqtt_en=0/mqtt_en=1/' ~pi/hdmi/matrix.conf
 
 mkdir ~pi/.node-red
-cp -a ~pi/node-red/* ~pi/.node-red/
+cp -a node-red/* ~pi/.node-red/
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo cp -a nginx/node-ui /etc/nginx/sites-enabled/
 
 cd ~/.node-red/
 
 npm install node-red-dashboard
 sudo systemctl start nodered
 
-sudo rm -f /etc/nginx/sites-enabled/default
-sudo cp -a ~pi/nginx/node-ui /etc/nginx/sites-enabled/
 sudo systemctl enable nginx
 sudo systemctl start nginx
+cd ~/
 
+echo 
+echo Installation complete.
+echo Please go to http://$(hostname -I):1880/ to configure your 
+echo  HDMI input and output names.
+echo
+echo Once this is complete, you can go to http://$(hostname -I) 
+echo  to use the mobile friendly web interface.
