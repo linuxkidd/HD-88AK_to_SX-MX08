@@ -644,7 +644,7 @@
         "type": "comment",
         "z": "cc6b4ac3.158a9",
         "name": "#1: Edit Inputs",
-        "info": "Please edit the 'Populate Inputs' node to adjust\nthe input names for your HDMI Matrix",
+        "info": "Please edit the 'Populate Inputs' node to adjust\nthe input names for your HDMI Matrix.\n\nNOTE: To Edit nodes, double click on them.",
         "x": 200.5,
         "y": 78.5,
         "wires": []
@@ -654,7 +654,7 @@
         "type": "comment",
         "z": "cc6b4ac3.158a9",
         "name": "#2: Edit Outputs",
-        "info": "Please edit the teal 'abc' nodes to adjust\nthe output names for your HDMI Matrix",
+        "info": "Please edit the teal 'abc' nodes to adjust\nthe output names for your HDMI Matrix.\n\nNOTE: To Edit nodes, double click on them.",
         "x": 211,
         "y": 117,
         "wires": []
