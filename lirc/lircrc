@@ -1,0 +1,96 @@
+begin
+    prog   = irexec
+    button = Input1
+    config = ~pi/hdmi/input.sh 1
+end
+
+begin
+    prog   = irexec
+    button = Output1
+    config = ~pi/hdmi/output.sh 1
+end
+
+begin
+    prog   = irexec
+    button = Input2
+    config = ~pi/hdmi/input.sh 2
+end
+
+begin
+    prog   = irexec
+    button = Output2
+    config = ~pi/hdmi/output.sh 2
+end
+
+begin
+    prog   = irexec
+    button = Input3
+    config = ~pi/hdmi/input.sh 3
+end
+
+begin
+    prog   = irexec
+    button = Output3
+    config = ~pi/hdmi/output.sh 3
+end
+
+begin
+    prog   = irexec
+    button = Input4
+    config = ~pi/hdmi/input.sh 4
+end
+
+begin
+    prog   = irexec
+    button = Output4
+    config = ~pi/hdmi/output.sh 4
+end
+
+begin
+    prog   = irexec
+    button = Input5
+    config = ~pi/hdmi/input.sh 5
+end
+
+begin
+    prog   = irexec
+    button = Output5
+    config = ~pi/hdmi/output.sh 5
+end
+
+begin
+    prog   = irexec
+    button = Input6
+    config = ~pi/hdmi/input.sh 6
+end
+
+begin
+    prog   = irexec
+    button = Output6
+    config = ~pi/hdmi/output.sh 6
+end
+
+begin
+    prog   = irexec
+    button = Input7
+    config = ~pi/hdmi/input.sh 7
+end
+
+begin
+    prog   = irexec
+    button = Output7
+    config = ~pi/hdmi/output.sh 7
+end
+
+begin
+    prog   = irexec
+    button = Input8
+    config = ~pi/hdmi/input.sh 8
+end
+
+begin
+    prog   = irexec
+    button = Output8
+    config = ~pi/hdmi/output.sh 8
+end
+

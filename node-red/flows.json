@@ -1,0 +1,692 @@
+[
+    {
+        "id": "cc6b4ac3.158a9",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "c87b8259.d36f",
+        "type": "ui_group",
+        "z": "",
+        "name": "HDMI Matrix",
+        "tab": "f03631b2.09043",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "8e86f0f.85a211",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "f03631b2.09043",
+        "type": "ui_tab",
+        "z": "",
+        "name": "HDMI Matrix",
+        "icon": "dashboard"
+    },
+    {
+        "id": "7207361c.7d8688",
+        "type": "ui_dropdown",
+        "z": "cc6b4ac3.158a9",
+        "name": "Output 1",
+        "label": "",
+        "group": "c87b8259.d36f",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "options": [
+            {
+                "label": "Off",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "1 ",
+        "x": 585,
+        "y": 315,
+        "wires": [
+            [
+                "425250b2.0fb87"
+            ]
+        ]
+    },
+    {
+        "id": "7da8539a.b8aa1c",
+        "type": "exec",
+        "z": "cc6b4ac3.158a9",
+        "command": "~pi/hdmi/hdmi.sh",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "",
+        "x": 1115.5,
+        "y": 456.5,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "425250b2.0fb87",
+        "type": "template",
+        "z": "cc6b4ac3.158a9",
+        "name": "Topic / Payload",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{topic}} {{payload}}",
+        "x": 895,
+        "y": 457,
+        "wires": [
+            [
+                "7da8539a.b8aa1c"
+            ]
+        ]
+    },
+    {
+        "id": "bf2fb19a.168a",
+        "type": "mqtt in",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "HDMI/1",
+        "qos": "0",
+        "broker": "8e86f0f.85a211",
+        "x": 391.5,
+        "y": 315,
+        "wires": [
+            [
+                "7207361c.7d8688"
+            ]
+        ]
+    },
+    {
+        "id": "17d58827.fcd1c8",
+        "type": "ui_dropdown",
+        "z": "cc6b4ac3.158a9",
+        "name": "Output 2",
+        "label": "",
+        "group": "c87b8259.d36f",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "options": [
+            {
+                "label": "Off",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "2",
+        "x": 585,
+        "y": 360,
+        "wires": [
+            [
+                "425250b2.0fb87"
+            ]
+        ]
+    },
+    {
+        "id": "d88cce49.59262",
+        "type": "mqtt in",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "HDMI/2",
+        "qos": "0",
+        "broker": "8e86f0f.85a211",
+        "x": 391.5,
+        "y": 360,
+        "wires": [
+            [
+                "17d58827.fcd1c8"
+            ]
+        ]
+    },
+    {
+        "id": "88cfdd43.7917",
+        "type": "ui_dropdown",
+        "z": "cc6b4ac3.158a9",
+        "name": "Output 3",
+        "label": "",
+        "group": "c87b8259.d36f",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "options": [
+            {
+                "label": "Off",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "3",
+        "x": 586,
+        "y": 401,
+        "wires": [
+            [
+                "425250b2.0fb87"
+            ]
+        ]
+    },
+    {
+        "id": "bdc01b9b.3d83b8",
+        "type": "mqtt in",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "HDMI/3",
+        "qos": "0",
+        "broker": "8e86f0f.85a211",
+        "x": 392.5,
+        "y": 401,
+        "wires": [
+            [
+                "88cfdd43.7917"
+            ]
+        ]
+    },
+    {
+        "id": "dd3522ad.79eeb",
+        "type": "ui_dropdown",
+        "z": "cc6b4ac3.158a9",
+        "name": "Output 4",
+        "label": "",
+        "group": "c87b8259.d36f",
+        "order": 8,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "options": [
+            {
+                "label": "Off",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "4",
+        "x": 586,
+        "y": 441,
+        "wires": [
+            [
+                "425250b2.0fb87"
+            ]
+        ]
+    },
+    {
+        "id": "19a64614.de4b0a",
+        "type": "mqtt in",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "HDMI/4",
+        "qos": "0",
+        "broker": "8e86f0f.85a211",
+        "x": 392.5,
+        "y": 441,
+        "wires": [
+            [
+                "dd3522ad.79eeb"
+            ]
+        ]
+    },
+    {
+        "id": "931257f5.a974c8",
+        "type": "ui_dropdown",
+        "z": "cc6b4ac3.158a9",
+        "name": "Output 5",
+        "label": "",
+        "group": "c87b8259.d36f",
+        "order": 10,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "options": [
+            {
+                "label": "Off",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "5",
+        "x": 586,
+        "y": 484,
+        "wires": [
+            [
+                "425250b2.0fb87"
+            ]
+        ]
+    },
+    {
+        "id": "896f9421.caf738",
+        "type": "mqtt in",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "HDMI/5",
+        "qos": "0",
+        "broker": "8e86f0f.85a211",
+        "x": 392.5,
+        "y": 484,
+        "wires": [
+            [
+                "931257f5.a974c8"
+            ]
+        ]
+    },
+    {
+        "id": "f8fc7b0.4e68b88",
+        "type": "ui_dropdown",
+        "z": "cc6b4ac3.158a9",
+        "name": "Output 6",
+        "label": "",
+        "group": "c87b8259.d36f",
+        "order": 12,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "options": [
+            {
+                "label": "Off",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "6",
+        "x": 586,
+        "y": 529,
+        "wires": [
+            [
+                "425250b2.0fb87"
+            ]
+        ]
+    },
+    {
+        "id": "71d2d024.6718a",
+        "type": "mqtt in",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "HDMI/6",
+        "qos": "0",
+        "broker": "8e86f0f.85a211",
+        "x": 392.5,
+        "y": 529,
+        "wires": [
+            [
+                "f8fc7b0.4e68b88"
+            ]
+        ]
+    },
+    {
+        "id": "92f41457.c69218",
+        "type": "ui_dropdown",
+        "z": "cc6b4ac3.158a9",
+        "name": "Output 7",
+        "label": "",
+        "group": "c87b8259.d36f",
+        "order": 14,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "options": [
+            {
+                "label": "Off",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "7",
+        "x": 587,
+        "y": 570,
+        "wires": [
+            [
+                "425250b2.0fb87"
+            ]
+        ]
+    },
+    {
+        "id": "ef449a9e.6bff68",
+        "type": "mqtt in",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "HDMI/7",
+        "qos": "0",
+        "broker": "8e86f0f.85a211",
+        "x": 393.5,
+        "y": 570,
+        "wires": [
+            [
+                "92f41457.c69218"
+            ]
+        ]
+    },
+    {
+        "id": "415f8ec3.a0033",
+        "type": "ui_dropdown",
+        "z": "cc6b4ac3.158a9",
+        "name": "Output 8",
+        "label": "",
+        "group": "c87b8259.d36f",
+        "order": 16,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "options": [
+            {
+                "label": "Off",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "8",
+        "x": 587,
+        "y": 610,
+        "wires": [
+            [
+                "425250b2.0fb87"
+            ]
+        ]
+    },
+    {
+        "id": "2f93d9f.b625226",
+        "type": "mqtt in",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "HDMI/8",
+        "qos": "0",
+        "broker": "8e86f0f.85a211",
+        "x": 393.5,
+        "y": 610,
+        "wires": [
+            [
+                "415f8ec3.a0033"
+            ]
+        ]
+    },
+    {
+        "id": "36749a24.e408c6",
+        "type": "ui_text",
+        "z": "cc6b4ac3.158a9",
+        "group": "c87b8259.d36f",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Main TV",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 220,
+        "y": 321,
+        "wires": []
+    },
+    {
+        "id": "ecf27003.8b5b4",
+        "type": "ui_text",
+        "z": "cc6b4ac3.158a9",
+        "group": "c87b8259.d36f",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Front TV",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 220,
+        "y": 362,
+        "wires": []
+    },
+    {
+        "id": "d81e9bb7.52b048",
+        "type": "ui_text",
+        "z": "cc6b4ac3.158a9",
+        "group": "c87b8259.d36f",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Outside TV",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 230,
+        "y": 404,
+        "wires": []
+    },
+    {
+        "id": "99d9939c.c24d2",
+        "type": "ui_text",
+        "z": "cc6b4ac3.158a9",
+        "group": "c87b8259.d36f",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Bedroom TV",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 230,
+        "y": 444,
+        "wires": []
+    },
+    {
+        "id": "b3a9dfee.cc7c5",
+        "type": "ui_text",
+        "z": "cc6b4ac3.158a9",
+        "group": "c87b8259.d36f",
+        "order": 9,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Projector",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 220,
+        "y": 486,
+        "wires": []
+    },
+    {
+        "id": "1398d1f4.d8afbe",
+        "type": "ui_text",
+        "z": "cc6b4ac3.158a9",
+        "group": "c87b8259.d36f",
+        "order": 11,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "TV 6",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 210,
+        "y": 529,
+        "wires": []
+    },
+    {
+        "id": "ce8eb323.51b9a",
+        "type": "ui_text",
+        "z": "cc6b4ac3.158a9",
+        "group": "c87b8259.d36f",
+        "order": 13,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "TV 7",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 210,
+        "y": 569,
+        "wires": []
+    },
+    {
+        "id": "45b49b24.13a8b4",
+        "type": "ui_text",
+        "z": "cc6b4ac3.158a9",
+        "group": "c87b8259.d36f",
+        "order": 15,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "TV 8",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 210,
+        "y": 610,
+        "wires": []
+    },
+    {
+        "id": "32e13e26.edf8ca",
+        "type": "function",
+        "z": "cc6b4ac3.158a9",
+        "name": "Populate Inputs",
+        "func": "/* Edit the inputs names inside the \"\"s below.\n * Leave the \"Off\" option as is if you want to\n *   allow turning off an output. If you do NOT\n *   want the option to turn an output Off,\n *   you can comment out, or remove the entire\n *   \"Off\" line.\n * \n * You can also change the 'default input number'\n * option, but this should really have minimal\n * effect if your MQTT server is running.\n */\n\ninputs=[\n     {\"Off\":0},\n     {\"Kodi\":1},\n     {\"Cable\":2},\n     {\"Roku\":3},\n     {\"Cast\":4},\n     {\"BluRay\":5},\n     {\"none\":6},\n     {\"none\":7},\n     {\"none\":8}\n    ];\n\ndefault_input_number=0;\nreturn {\n    options: inputs, \n    payload: default_input_number\n    };",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 266.5,
+        "wires": [
+            [
+                "7207361c.7d8688",
+                "17d58827.fcd1c8",
+                "88cfdd43.7917",
+                "dd3522ad.79eeb",
+                "931257f5.a974c8",
+                "f8fc7b0.4e68b88",
+                "92f41457.c69218",
+                "415f8ec3.a0033"
+            ]
+        ]
+    },
+    {
+        "id": "785c6126.12bb28",
+        "type": "inject",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 188,
+        "y": 266.5,
+        "wires": [
+            [
+                "32e13e26.edf8ca"
+            ]
+        ]
+    },
+    {
+        "id": "343ae007.a54c28",
+        "type": "ui_button",
+        "z": "cc6b4ac3.158a9",
+        "name": "",
+        "group": "c87b8259.d36f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Sync",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-refresh",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 595,
+        "y": 664.5,
+        "wires": [
+            [
+                "7da8539a.b8aa1c"
+            ]
+        ]
+    },
+    {
+        "id": "29917523.c0c892",
+        "type": "inject",
+        "z": "cc6b4ac3.158a9",
+        "name": "30 second refresh",
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "x": 548,
+        "y": 699,
+        "wires": [
+            [
+                "7da8539a.b8aa1c"
+            ]
+        ]
+    },
+    {
+        "id": "ea841c30.b87c78",
+        "type": "comment",
+        "z": "cc6b4ac3.158a9",
+        "name": "#1: Edit Inputs",
+        "info": "Please edit the 'Populate Inputs' node to adjust\nthe input names for your HDMI Matrix",
+        "x": 200.5,
+        "y": 78.5,
+        "wires": []
+    },
+    {
+        "id": "443bc2a8.a5768c",
+        "type": "comment",
+        "z": "cc6b4ac3.158a9",
+        "name": "#2: Edit Outputs",
+        "info": "Please edit the teal 'abc' nodes to adjust\nthe output names for your HDMI Matrix",
+        "x": 201,
+        "y": 117,
+        "wires": []
+    },
+    {
+        "id": "721be063.9f769",
+        "type": "comment",
+        "z": "cc6b4ac3.158a9",
+        "name": "NOTE: 30 second refresh",
+        "info": "Note that the system will automatically query your\nHDMI switch every 30 seconds to ensure the\ndisplayed options are up to date.",
+        "x": 231,
+        "y": 155,
+        "wires": []
+    },
+    {
+        "id": "79e6a786.e1dec",
+        "type": "comment",
+        "z": "cc6b4ac3.158a9",
+        "name": "Click each comment below to read it's contents in the 'Info' tab on the right.",
+        "info": "",
+        "x": 390.5,
+        "y": 41.5,
+        "wires": []
+    },
+    {
+        "id": "3609ea3d.2dff06",
+        "type": "comment",
+        "z": "cc6b4ac3.158a9",
+        "name": "Once all edits are complete, click the red 'Deploy' button at the top right.",
+        "info": "",
+        "x": 380.5,
+        "y": 190.5,
+        "wires": []
+    }
+]
