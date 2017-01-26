@@ -655,7 +655,7 @@
         "z": "cc6b4ac3.158a9",
         "name": "#2: Edit Outputs",
         "info": "Please edit the teal 'abc' nodes to adjust\nthe output names for your HDMI Matrix",
-        "x": 201,
+        "x": 211,
         "y": 117,
         "wires": []
     },
@@ -665,8 +665,8 @@
         "z": "cc6b4ac3.158a9",
         "name": "NOTE: 30 second refresh",
         "info": "Note that the system will automatically query your\nHDMI switch every 30 seconds to ensure the\ndisplayed options are up to date.",
-        "x": 231,
-        "y": 155,
+        "x": 241,
+        "y": 153,
         "wires": []
     },
     {
