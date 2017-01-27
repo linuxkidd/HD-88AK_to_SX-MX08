@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~pi/hdmi/matrix.conf
+source ~pi/matrix.conf
 
 function usage {
 	echo
@@ -22,22 +22,48 @@ function checkStatus {
 		if [ $(echo $i | egrep -c ^O[1-8]I[1-8]$) -eq 1 ]; then
 			updatemqtt $(echo $i | sed -e 's/[OI]/ /g')
 		fi
+		if [ $(echo $i | egrep -c '^O[1-8]O(N|FF)$') -eq 1 ]; then
+			myOut=$(echo $i | sed -e 's/[^0-9]//g')
+			myState=$(echo $i | sed -e 's/^..//')
+			updatemqtt ${myOut}_state $myState
+		fi
+		
 	done
+}
+
+function changeState {
+	message='fail'
+	myOut=$(echo $1 | sed -e 's/[^0-9]//g')
+	for i in $(wget -O- -q "http://${matrix_ip}/TimSendCmd.CGI?button=O${myOut}${2}" | awk -F= '{print $2}' | tr '\&' '\n'); do
+		if [ $(echo $i | grep -c O${myOut}${2}) -eq 1 ]; then
+			message='success'
+		fi
+		if [ $(echo $i | egrep -c ^O[1-8]I[1-8]$) -eq 1 ]; then
+			updatemqtt $(echo $i | sed -e 's/[OI]/ /g')
+		fi
+		if [ $(echo $i | egrep -c '^O[1-8]O(N|FF)$') -eq 1 ]; then
+			myOut=$(echo $i | sed -e 's/[^0-9]//g')
+			myState=$(echo $i | sed -e 's/^..//')
+			updatemqtt ${myOut}_state $myState
+		fi
+	done
+
 }
 
 function changeInput {
 
 	message='fail'
-	inSel="I${2}"
-	if [ $2 -eq 0 ]; then
-		inSel="OFF"
-	fi
-	for i in $(wget -O- -q "http://${matrix_ip}/TimSendCmd.CGI?button=O${1}${inSel}" | awk -F= '{print $2}' | tr '\&' '\n'); do
+	for i in $(wget -O- -q "http://${matrix_ip}/TimSendCmd.CGI?button=O${1}I${2}" | awk -F= '{print $2}' | tr '\&' '\n'); do
 		if [ $(echo $i | grep -c O${1}I${2}) -eq 1 ]; then
 			message='success'
 		fi
 		if [ $(echo $i | egrep -c ^O[1-8]I[1-8]$) -eq 1 ]; then
 			updatemqtt $(echo $i | sed -e 's/[OI]/ /g')
+		fi
+		if [ $(echo $i | egrep -c '^O[1-8]O(N|FF)$') -eq 1 ]; then
+			myOut=$(echo $i | sed -e 's/[^0-9]//g')
+			myState=$(echo $i | sed -e 's/^..//')
+			updatemqtt ${myOut}_state $myState
 		fi
 	done
 	echo $message
@@ -48,9 +74,14 @@ if [ -z $2 ]; then
 	exit
 fi
 
-if [ $1 -gt 9 -o $2 -gt 8 ]; then
-	usage
-fi
+if [ $(echo $1 | grep -c _state) -eq 1 ]; then
+	changeState $1 $2
+else
 
-changeInput $1 $2
+	if [ $1 -gt 9 -o $2 -gt 8 ]; then
+		usage
+	fi
+
+	changeInput $1 $2
+fi
 
