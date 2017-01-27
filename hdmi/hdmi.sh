@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~pi/matrix.conf
+source ~pi/hdmi/matrix.conf
 
 function usage {
 	echo
